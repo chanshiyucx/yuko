@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /yuko
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/eslkan
+    hikari:
+      username: root
+      password: Aa778899
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    com.chanshiyu.tuko: debug
+
+swagger:
+  title: Yuko Api
+  description: Yuko Api
+  version: 1.0.0
+  terms-of-service-url: https://chanshiyu.com/
+  base-package: com.chanshiyu.yuko
+  contact:
+    name: 蝉時雨
+    url: https://chanshiyu.com/
+    email: me@chanshiyu.com
