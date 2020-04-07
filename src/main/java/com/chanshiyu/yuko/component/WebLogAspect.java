@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
 import com.chanshiyu.yuko.model.bo.WebLog;
+import com.chanshiyu.yuko.utils.IpUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -30,8 +31,8 @@ import java.util.Map;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 16:17
  * @description 统一日志处理切面
+ * @since 2020/3/31 16:17
  */
 @Slf4j
 @Aspect
@@ -71,7 +72,7 @@ public class WebLogAspect {
         long endTime = System.currentTimeMillis();
         String urlStr = request.getRequestURL().toString();
         webLog.setBasePath(StrUtil.removeSuffix(urlStr, URLUtil.url(urlStr).getPath()));
-        webLog.setIp(request.getRemoteAddr());
+        webLog.setIp(IpUtil.getIpAddr(request));
         webLog.setMethod(request.getMethod());
         webLog.setParameter(getParameter(method, joinPoint.getArgs()));
         webLog.setResult(result);

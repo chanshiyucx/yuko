@@ -12,8 +12,8 @@ import org.springframework.validation.FieldError;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 16:49
- * @description
+ * @since 2020/3/31 16:49
+ * @description HibernateValidator 错误结果处理切面
  */
 @Aspect
 @Component

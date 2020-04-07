@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 16:37
+ * @since 2020/3/31 16:37
  * @description Swagger2 文档的配置
  */
 @Configuration

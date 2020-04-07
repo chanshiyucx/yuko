@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 19:03
+ * @since 2020/3/31 19:03
  * @description Mybatis Plus 生成器
  */
 public class Generator {
@@ -44,7 +44,7 @@ public class Generator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("chanshiyu");
+        gc.setAuthor("SHIYU");
         gc.setOpen(false);
         gc.setBaseResultMap(true);
         gc.setSwagger2(true);

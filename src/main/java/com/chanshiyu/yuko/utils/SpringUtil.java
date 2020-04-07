@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 
 /**
  * @author SHIYU
- * @date 2020/4/1 9:09
+ * @since 2020/4/1 9:09
  * @description 手动获取被 spring 管理的 bean 对象
  */
 public class SpringUtil implements ApplicationContextAware {

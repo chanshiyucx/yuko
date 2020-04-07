@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author chanshiyu
- * @since 2020-04-01
+ * @author SHIYU
+ * @since 2020-04-07
  */
 @RestController
 @RequestMapping("/access")
