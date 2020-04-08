@@ -7,8 +7,8 @@ import java.util.List;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 16:54
  * @description 分页数据
+ * @since 2020/3/31 16:54
  */
 @Data
 public class CommonPage<T> {

@@ -18,8 +18,8 @@ import java.util.List;
 
 /**
  * @author SHIYU
- * @since 2020/3/31 16:37
  * @description Swagger2 文档的配置
+ * @since 2020/3/31 16:37
  */
 @Configuration
 @EnableSwagger2

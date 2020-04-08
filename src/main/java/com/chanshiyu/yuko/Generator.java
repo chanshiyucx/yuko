@@ -16,8 +16,8 @@ import java.util.Scanner;
 
 /**
  * @author SHIYU
- * @since 2020/3/31 19:03
  * @description Mybatis Plus 生成器
+ * @since 2020/3/31 19:03
  */
 public class Generator {
 

@@ -1,13 +1,12 @@
 package com.chanshiyu.yuko.model.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 16:53
  * @description 分页描述信息
+ * @since 2020/3/31 16:53
  */
 @Data
 @NoArgsConstructor

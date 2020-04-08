@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author SHIYU
- * @since 2020/3/31 18:49
  * @description Mybatis Plus 配置
+ * @since 2020/3/31 18:49
  */
 @Configuration
 @EnableTransactionManagement

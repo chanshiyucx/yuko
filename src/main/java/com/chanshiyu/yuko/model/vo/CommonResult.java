@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 
 /**
  * @author SHIYU
- * @date 2020/3/31 16:54
  * @description 通用响应数据
+ * @since 2020/3/31 16:54
  */
 @Data
 public class CommonResult<T> {
@@ -74,6 +74,10 @@ public class CommonResult<T> {
 
     public static <T> CommonResult<T> failed(String message) {
         return new CommonResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), message);
+    }
+
+    public static <T> CommonResult<T> failed(int status, String message) {
+        return new CommonResult<>(status, message);
     }
 
 }
