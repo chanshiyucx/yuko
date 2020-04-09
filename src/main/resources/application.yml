@@ -31,6 +31,12 @@ spring:
         max-idle: 8
         min-idle: 0
 
+jwt:
+  tokenHeader: Authorization
+  tokenHead: Bearer
+  secret: yuko-secret
+  expiration: 604800
+
 logging:
   level:
     com.chanshiyu.yuko: debug

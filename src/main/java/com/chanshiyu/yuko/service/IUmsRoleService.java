@@ -1,12 +1,12 @@
 package com.chanshiyu.yuko.service;
 
-import com.chanshiyu.yuko.entity.Source;
+import com.chanshiyu.yuko.entity.UmsRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @author SHIYU
- * @since 2020-04-07
+ * @since 2020-04-09
  */
-public interface ISourceService extends IService<Source> {
+public interface IUmsRoleService extends IService<UmsRole> {
 
 }

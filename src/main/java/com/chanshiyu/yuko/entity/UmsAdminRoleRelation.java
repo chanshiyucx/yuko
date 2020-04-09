@@ -2,7 +2,6 @@ package com.chanshiyu.yuko.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -12,29 +11,28 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 后台用户和角色关系表
  * </p>
  *
  * @author SHIYU
- * @since 2020-04-07
+ * @since 2020-04-09
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="Source对象", description="")
-public class Source implements Serializable {
+@ApiModel(value="UmsAdminRoleRelation对象", description="后台用户和角色关系表")
+public class UmsAdminRoleRelation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "ID")
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "编码信息")
-    private String code;
+    @ApiModelProperty(value = "用户id")
+    private Integer adminId;
 
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
+    @ApiModelProperty(value = "角色id")
+    private Integer roleId;
 
 
 }

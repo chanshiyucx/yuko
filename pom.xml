@@ -16,11 +16,12 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <swagger.version>2.9.2</swagger.version>
-        <hutool.version>4.6.8</hutool.version>
         <mybatis.plus.version>3.3.1</mybatis.plus.version>
         <mysql.version>8.0.17</mysql.version>
         <freemarker.version>2.3.30</freemarker.version>
+        <swagger.version>2.9.2</swagger.version>
+        <hutool.version>4.6.8</hutool.version>
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
     <dependencies>
@@ -42,6 +43,17 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- SpringSecurity -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- JWT  -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
         </dependency>
         <!-- Redis -->
         <dependency>
