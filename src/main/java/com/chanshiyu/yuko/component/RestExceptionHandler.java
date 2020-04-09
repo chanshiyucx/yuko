@@ -25,33 +25,8 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public CommonResult<String> handleDefaultError(Exception e) {
-        e.printStackTrace();
-        return CommonResult.failed(e.getMessage());
-    }
-
-    /**
-     * 普通 Restful 接口参数判断
-     *
-     * @param e 具体异常
-     * @return 异常消息
-     */
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public CommonResult<String> handleArgumentNotValid(MethodArgumentNotValidException e) {
-        return CommonResult.failed(getValidException(e));
-    }
-
-    /**
-     * webflux 接口参数判断
-     *
-     * @param e 具体异常
-     * @return 异常消息
-     */
-    @ExceptionHandler(WebExchangeBindException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public CommonResult<String> handleBindException(WebExchangeBindException e) {
-        return CommonResult.failed(getValidException(e));
+    public CommonResult<String> handleGlobalException(Exception e) {
+        return CommonResult.failed(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
     }
 
     /**
@@ -64,6 +39,30 @@ public class RestExceptionHandler {
     public ResponseEntity<CommonResult> handleBaseException(BaseException e) {
         CommonResult commonResult = CommonResult.failed(e.getStatus().value(), e.getMessage());
         return new ResponseEntity<>(commonResult, e.getStatus());
+    }
+
+    /**
+     * 普通 Restful 接口参数判断
+     *
+     * @param e 具体异常
+     * @return 异常消息
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public CommonResult<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        return CommonResult.failed(getValidException(e));
+    }
+
+    /**
+     * webflux 接口参数判断
+     *
+     * @param e 具体异常
+     * @return 异常消息
+     */
+    @ExceptionHandler(WebExchangeBindException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public CommonResult<String> handleWebExchangeBindException(WebExchangeBindException e) {
+        return CommonResult.failed(getValidException(e));
     }
 
     /**

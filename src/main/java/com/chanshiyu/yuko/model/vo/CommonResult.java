@@ -60,10 +60,6 @@ public class CommonResult<T> {
         return new CommonResult<>(data, attributes);
     }
 
-    public static <T> CommonResult<T> validateFailed(String message) {
-        return new CommonResult<T>(HttpStatus.BAD_REQUEST.value(), message);
-    }
-
     public static <T> CommonResult<T> unauthorized(String message) {
         return new CommonResult<>(HttpStatus.UNAUTHORIZED.value(), message);
     }
@@ -73,7 +69,7 @@ public class CommonResult<T> {
     }
 
     public static <T> CommonResult<T> failed(String message) {
-        return new CommonResult<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), message);
+        return new CommonResult<T>(HttpStatus.BAD_REQUEST.value(), message);
     }
 
     public static <T> CommonResult<T> failed(int status, String message) {
