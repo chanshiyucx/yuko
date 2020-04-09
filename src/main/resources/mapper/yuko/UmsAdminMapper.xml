@@ -4,15 +4,24 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.chanshiyu.yuko.entity.UmsAdmin">
-        <id column="id" property="id" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="nickname" property="nickname" />
-        <result column="avatar" property="avatar" />
-        <result column="email" property="email" />
-        <result column="note" property="note" />
-        <result column="status" property="status" />
-        <result column="create_time" property="createTime" />
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="avatar" property="avatar"/>
+        <result column="email" property="email"/>
+        <result column="note" property="note"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
     </resultMap>
+
+    <select id="getPermissionList" resultMap="com.chanshiyu.yuko.mapper.UmsPermissionMapper.BaseResultMap">
+        SELECT p.*
+        FROM ums_admin_role_relation ar
+                 LEFT JOIN ums_role r ON ar.role_id = r.id
+                 LEFT JOIN ums_role_permission_relation rp ON r.id = rp.role_id
+                 LEFT JOIN ums_permission p ON rp.permission_id = p.id
+        WHERE ar.admin_id = #{adminId}
+    </select>
 
 </mapper>

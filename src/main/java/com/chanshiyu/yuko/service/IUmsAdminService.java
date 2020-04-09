@@ -21,7 +21,7 @@ public interface IUmsAdminService extends IService<UmsAdmin> {
     /**
      * 获取用户所有权限
      */
-    List<UmsPermission> getPermissionList(Integer adminId);
+    List<UmsPermission> getPermissionList(Integer id);
 
     /**
      * 刷新 token

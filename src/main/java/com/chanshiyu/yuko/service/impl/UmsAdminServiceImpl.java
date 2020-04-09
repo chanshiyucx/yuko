@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.chanshiyu.yuko.entity.UmsAdmin;
 import com.chanshiyu.yuko.entity.UmsPermission;
 import com.chanshiyu.yuko.mapper.UmsAdminMapper;
+import com.chanshiyu.yuko.mapper.UmsRolePermissionRelationMapper;
 import com.chanshiyu.yuko.service.IUmsAdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +21,11 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     private final UmsAdminMapper umsAdminMapper;
 
-    public UmsAdminServiceImpl(UmsAdminMapper umsAdminMapper) {
+    private final UmsRolePermissionRelationMapper umsRolePermissionRelationMapper;
+
+    public UmsAdminServiceImpl(UmsAdminMapper umsAdminMapper, UmsRolePermissionRelationMapper umsRolePermissionRelationMapper) {
         this.umsAdminMapper = umsAdminMapper;
+        this.umsRolePermissionRelationMapper = umsRolePermissionRelationMapper;
     }
 
     @Override
@@ -33,8 +36,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     }
 
     @Override
-    public List<UmsPermission> getPermissionList(Integer adminId) {
-        return null;
+    public List<UmsPermission> getPermissionList(Integer id) {
+        return umsAdminMapper.getPermissionList(id);
     }
 
     @Override
