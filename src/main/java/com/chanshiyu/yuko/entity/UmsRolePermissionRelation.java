@@ -34,5 +34,4 @@ public class UmsRolePermissionRelation implements Serializable {
     @ApiModelProperty(value = "权限id")
     private Integer permissionId;
 
-
 }

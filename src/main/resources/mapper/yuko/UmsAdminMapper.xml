@@ -15,6 +15,13 @@
         <result column="create_time" property="createTime"/>
     </resultMap>
 
+    <resultMap id="AdminResultMap" type="com.chanshiyu.yuko.model.vo.UmsAdminVO"
+               extends="com.chanshiyu.yuko.mapper.UmsAdminMapper.BaseResultMap">
+        <collection property="roleIds" ofType="LONG">
+            <result column="role_id"/>
+        </collection>
+    </resultMap>
+
     <select id="getPermissionList" resultMap="com.chanshiyu.yuko.mapper.UmsPermissionMapper.BaseResultMap">
         SELECT p.*
         FROM ums_admin_role_relation ar
@@ -22,6 +29,14 @@
                  LEFT JOIN ums_role_permission_relation rp ON r.id = rp.role_id
                  LEFT JOIN ums_permission p ON rp.permission_id = p.id
         WHERE ar.admin_id = #{adminId}
+    </select>
+
+    <select id="getAdminList" resultMap="AdminResultMap">
+        SELECT a.*,
+               ar.role_id role_id
+        FROM ums_admin a
+                 LEFT JOIN ums_admin_role_relation ar ON a.id = ar.admin_id
+        ORDER BY a.id
     </select>
 
 </mapper>
