@@ -31,6 +31,10 @@ spring:
         max-idle: 8
         min-idle: 0
 
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  typeAliasesPackage: com.chanshiyu.yuko.entity
+
 jwt:
   tokenHeader: Authorization
   tokenHead: Bearer
