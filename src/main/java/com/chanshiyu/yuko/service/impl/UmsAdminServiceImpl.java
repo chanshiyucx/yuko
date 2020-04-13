@@ -1,6 +1,6 @@
 package com.chanshiyu.yuko.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -61,8 +61,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
-        QueryWrapper<UmsAdmin> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", username);
+        LambdaQueryWrapper<UmsAdmin> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(UmsAdmin::getUsername, username);
         return umsAdminMapper.selectOne(queryWrapper);
     }
 
@@ -186,8 +186,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     private void updateRole(Integer adminId, List<Integer> roleIds) {
         // 先删除原有关系
-        QueryWrapper<UmsAdminRoleRelation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("adminId", adminId);
+        LambdaQueryWrapper<UmsAdminRoleRelation> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(UmsAdminRoleRelation::getAdminId, adminId);
         umsAdminRoleRelationMapper.delete(queryWrapper);
         // 批量插入新关系
         List<UmsAdminRoleRelation> relationList = roleIds.stream()
