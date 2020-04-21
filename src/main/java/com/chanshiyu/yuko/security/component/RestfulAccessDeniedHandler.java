@@ -17,7 +17,6 @@ import java.io.IOException;
  * @description 当访问接口没有权限时，自定义的返回结果
  * @since 2020/4/9 14:53
  */
-@Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
 
     @Override

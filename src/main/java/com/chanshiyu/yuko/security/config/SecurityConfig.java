@@ -4,6 +4,8 @@ import com.chanshiyu.yuko.security.component.RestAuthenticationEntryPoint;
 import com.chanshiyu.yuko.security.component.RestfulAccessDeniedHandler;
 import com.chanshiyu.yuko.security.core.AdminUserDetailsService;
 import com.chanshiyu.yuko.security.filter.JwtAuthenticationTokenFilter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,11 +30,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
     private AdminUserDetailsService adminUserDetailsService;
-
-    public SecurityConfig(AdminUserDetailsService adminUserDetailsService) {
-        this.adminUserDetailsService = adminUserDetailsService;
-    }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {

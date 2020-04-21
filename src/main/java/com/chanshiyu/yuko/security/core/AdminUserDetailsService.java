@@ -1,6 +1,7 @@
 package com.chanshiyu.yuko.security.core;
 
 import com.chanshiyu.yuko.service.IUmsAdminService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,14 +15,11 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class AdminUserDetailsService implements UserDetailsService {
 
     private final IUmsAdminService umsAdminService;
-
-    public AdminUserDetailsService(IUmsAdminService umsAdminService) {
-        this.umsAdminService = umsAdminService;
-    }
-
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return umsAdminService.loadUserByUsername(username);

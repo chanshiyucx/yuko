@@ -17,7 +17,6 @@ import java.io.IOException;
  * @description 当未登录或者 token 失效访问接口时，自定义的返回结果
  * @since 2020/4/9 14:52
  */
-@Component
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
