@@ -170,7 +170,7 @@ public class JwtUtil {
         Date created = claims.get(CLAIM_KEY_CREATED, Date.class);
         Date refreshDate = new Date();
         // 刷新时间在创建时间的指定时间内，这里指定 30 分钟
-        return refreshDate.after(created) && refreshDate.before(DateUtil.offsetSecond(created, 1800));
+        return refreshDate.after(created) && refreshDate.before(DateUtil.offsetSecond(created, 30 * 60));
     }
 
 }

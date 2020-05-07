@@ -2,8 +2,8 @@ package com.chanshiyu.yuko.security.config;
 
 import com.chanshiyu.yuko.security.component.RestAuthenticationEntryPoint;
 import com.chanshiyu.yuko.security.component.RestfulAccessDeniedHandler;
-import com.chanshiyu.yuko.security.core.AdminUserDetailsService;
 import com.chanshiyu.yuko.security.filter.JwtAuthenticationTokenFilter;
+import com.chanshiyu.yuko.security.core.AdminUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
