@@ -51,7 +51,13 @@ swagger:
   version: 1.0.0
   terms-of-service-url: https://chanshiyu.com/
   base-package: com.chanshiyu.yuko
+  base-path: /**
   contact:
     name: 蝉時雨
     url: https://chanshiyu.com/
     email: me@chanshiyu.com
+  authorization:
+    name: Authorization
+    type: ApiKey
+    key-name: token
+    auth-regex: ^.*$
