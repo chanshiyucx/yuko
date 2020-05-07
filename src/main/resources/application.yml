@@ -35,15 +35,15 @@ mybatis-plus:
   mapper-locations: classpath:mappers/*.xml
   typeAliasesPackage: com.chanshiyu.yuko.entity
 
+logging:
+  level:
+    com.chanshiyu.yuko: debug
+
 jwt:
   tokenHeader: Authorization
   tokenHead: Bearer
   secret: yuko-secret
   expiration: 604800
-
-logging:
-  level:
-    com.chanshiyu.yuko: debug
 
 swagger:
   title: Yuko Api

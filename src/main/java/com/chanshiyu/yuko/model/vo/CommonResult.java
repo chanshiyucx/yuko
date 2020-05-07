@@ -3,6 +3,8 @@ package com.chanshiyu.yuko.model.vo;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
+import java.util.ArrayList;
+
 /**
  * @author SHIYU
  * @description 通用响应数据

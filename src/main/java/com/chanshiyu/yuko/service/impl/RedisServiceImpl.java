@@ -2,6 +2,7 @@ package com.chanshiyu.yuko.service.impl;
 
 import com.chanshiyu.yuko.service.RedisService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2020/5/1 10:16
  */
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class RedisServiceImpl implements RedisService {
 
     private final RedisTemplate<String, Object> redisTemplate;

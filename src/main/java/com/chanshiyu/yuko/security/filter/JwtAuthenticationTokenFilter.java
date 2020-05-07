@@ -1,6 +1,6 @@
 package com.chanshiyu.yuko.security.filter;
 
-import com.chanshiyu.yuko.utils.JwtTokenUtil;
+import com.chanshiyu.yuko.utils.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,16 +28,16 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+    private JwtUtil jwtUtil;
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        String authToken = jwtTokenUtil.getToken(httpServletRequest);
+        String authToken = jwtUtil.getToken(httpServletRequest);
         if (authToken != null) {
-            String username = jwtTokenUtil.getUserNameFromToken(authToken);
+            String username = jwtUtil.getUserNameFromToken(authToken);
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                if (jwtTokenUtil.validateToken(authToken, userDetails)) {
+                if (jwtUtil.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                     SecurityContextHolder.getContext().setAuthentication(authentication);

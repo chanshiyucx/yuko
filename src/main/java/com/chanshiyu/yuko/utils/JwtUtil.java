@@ -17,12 +17,12 @@ import java.util.Map;
 
 /**
  * @author SHIYU
- * @description JwtToken 生成的工具类
+ * @description Jwt 工具类
  * @since 2020/4/9 14:36
  */
 @Slf4j
 @Component
-public class JwtTokenUtil {
+public class JwtUtil {
 
     private static final String CLAIM_KEY_USERNAME = "sub";
 

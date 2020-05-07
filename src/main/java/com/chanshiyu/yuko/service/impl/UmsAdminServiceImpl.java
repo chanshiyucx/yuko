@@ -21,9 +21,10 @@ import com.chanshiyu.yuko.security.core.AdminUserDetails;
 import com.chanshiyu.yuko.service.IUmsAdminRoleRelationService;
 import com.chanshiyu.yuko.service.IUmsAdminService;
 import com.chanshiyu.yuko.utils.IpUtil;
-import com.chanshiyu.yuko.utils.JwtTokenUtil;
+import com.chanshiyu.yuko.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -43,7 +44,7 @@ import java.util.stream.Collectors;
  * @since 2020-04-09
  */
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> implements IUmsAdminService {
 
     private final UmsAdminMapper umsAdminMapper;
@@ -54,7 +55,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     private final IUmsAdminRoleRelationService umsAdminRoleRelationService;
 
-    private final JwtTokenUtil jwtTokenUtil;
+    private final JwtUtil jwtUtil;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -94,7 +95,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         }
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtTokenUtil.generateToken(userDetails);
+        String token = jwtUtil.generateToken(userDetails);
         // 获取用户详细信息
         UmsAdmin umsAdmin = getAdminByUsername(username);
         UmsAdminVO umsAdminVO = new UmsAdminVO();
@@ -156,7 +157,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     @Override
     public String refreshToken(String oldToken) {
-        return jwtTokenUtil.refreshHeadToken(oldToken);
+        return jwtUtil.refreshHeadToken(oldToken);
     }
 
     @Override
