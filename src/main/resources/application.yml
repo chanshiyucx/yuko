@@ -45,6 +45,10 @@ jwt:
   secret: yuko-secret
   expiration: 604800
 
+disruptor:
+  buffer:
+    size: 1048576
+
 swagger:
   title: Yuko Api
   description: Yuko Api
